@@ -1,3 +1,9 @@
+let tm = require('../funcs/thanmenh');
+let tienth = require('../funcs/tienthien');
+let trungth = require('../funcs/trungthien');
+let hauth = require('../funcs/hauthien');
+let ndq = require('../funcs/nhan_duyen_qua');
+
 function validatePhoneNumber() {
      const phoneNumber = document.getElementById("phoneNumber").value;
      const errorElement = document.getElementById("error");
@@ -42,6 +48,9 @@ function validatePhoneNumber() {
 }
 
 function showResults() {
+     let testCal = calculatePhoneNumber()
+     console.log(testCal)
+
      // Lấy đối tượng ngẫu nhiên từ mảng dataUser
      const randomIndex = Math.floor(Math.random() * dataUser.length);
      const randomObject = dataUser[randomIndex];
@@ -126,3 +135,30 @@ const dataUser = [
      },
      // thêm obj tại đây
 ];
+
+
+function calculatePhoneNumber(){
+     let phoneNumber = document.getElementById("phoneNumber").value;
+     let lastSixDigits = phoneNumber.slice(-6);
+     let tmCode = tm.thanMenh(lastSixDigits)
+     let nCode = ndq.nhan(phoneNumber)
+     let  dCode = ndq.duyen(nCode)
+     let qCode = ndq.qua(nCode, phoneNumber)
+     let tienCode = tienth.tienThien(lastSixDigits)
+     let trungCode = trungth.trungThien(lastSixDigits)
+     let hauCode = hauth.hauThien(lastSixDigits)
+     let decryption = ndq.danhGiaNhanDuyenQua(nCode)
+     // console.log("Đánh giá:     ", decryption)
+ 
+     return {
+         than_menh: tmCode,
+         nhan: nCode,
+         duyen: dCode,
+         qua: qCode,
+         tien_thien: tienCode,
+         trung_thien: trungCode,
+         hau_thien: hauCode,
+         decryption: decryption,
+     }
+ 
+}
