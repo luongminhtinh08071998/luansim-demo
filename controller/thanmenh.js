@@ -1,4 +1,3 @@
-let mapPlq = require('./map_phan_loai_que');
 
 let mapBinCode = {
     "111": "1",
@@ -24,7 +23,7 @@ function thanMenh(lastSixDigits) {
     return {
         left: mapBinCode[l],
         right: mapBinCode[r],
-        rating: mapPlq.mapPhanLoaiQue[mapBinCode[l] + "/" + mapBinCode[r]],
+        rating: mapPhanLoaiQue[mapBinCode[l] + "/" + mapBinCode[r]],
     }
 }
 
@@ -36,5 +35,3 @@ function findBinCode(sixDigits) {
     return binCode;
 }
 
-
-module.exports = { thanMenh }

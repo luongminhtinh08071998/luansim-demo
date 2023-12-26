@@ -1,5 +1,4 @@
-let map = require('./map_nhan_duyen_qua');
-let mapPlq = require('./map_phan_loai_que');
+
 
 function nhan(phoneNumber) {
     let phoneNumberSubstring = phoneNumber.substring(0, 10);
@@ -15,20 +14,20 @@ function nhan(phoneNumber) {
     return {
         left: fengShuiFirstPart.toString(),
         right: fengShuiSecondPart.toString(),
-        rating: mapPlq.mapPhanLoaiQue[fengShuiFirstPart.toString() + "/" + fengShuiSecondPart.toString()],
+        rating: mapPhanLoaiQue[fengShuiFirstPart.toString() + "/" + fengShuiSecondPart.toString()],
     }
 }
 
 function duyen(nhanValue) {
     let nhanValueString = nhanValue.left + "/" + nhanValue.right
-    let duyen = map.mapCauseFateEffect[nhanValueString].fate
+    let duyen = mapCauseFateEffect[nhanValueString].fate
     let l = duyen.slice(0, 1)
     let r = duyen.slice(2, 3)
 
     return {
         left: l,
         right: r,
-        rating: mapPlq.mapPhanLoaiQue[l + "/" + r],
+        rating: mapPhanLoaiQue[l + "/" + r],
     }
 }
 
@@ -38,21 +37,21 @@ function qua(nhanValue, phoneNumber) {
     phoneNumberVariable = (phoneNumberVariable === 0) ? 6 : phoneNumberVariable;
 
     let nhanValueString = nhanValue.left + "/" + nhanValue.right
-    let qua = map.mapCauseFateEffect[nhanValueString].effect[phoneNumberVariable]
+    let qua = mapCauseFateEffect[nhanValueString].effect[phoneNumberVariable]
     let l = qua.slice(0, 1)
     let r = qua.slice(2, 3)
 
     return {
         left: l,
         right: r,
-        rating: mapPlq.mapPhanLoaiQue[l + "/" + r],
+        rating: mapPhanLoaiQue[l + "/" + r],
     }
 }
 
 
 function danhGiaNhanDuyenQua(nhanValue) {
     let nhanValueString = nhanValue.left + "/" + nhanValue.right
-    let que = map.mapCauseFateEffect[nhanValueString]
+    let que = mapCauseFateEffect[nhanValueString]
 
     return {
         name: que.name,
@@ -60,5 +59,3 @@ function danhGiaNhanDuyenQua(nhanValue) {
         mean: que.mean,
     }
 }
-
-module.exports = { nhan, duyen, qua, danhGiaNhanDuyenQua }

@@ -72,6 +72,4 @@ let mapPhanLoaiQue = {
     "8/8": "T",
 }
 
-
-
-module.exports = { mapPhanLoaiQue }
+ 
