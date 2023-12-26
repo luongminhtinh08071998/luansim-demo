@@ -1,5 +1,8 @@
+ 
+
 function validatePhoneNumber() {
      const phoneNumber = document.getElementById("phoneNumber").value;
+     const randomObject = calculatePhoneNumber();
      const errorElement = document.getElementById("error");
      const phonePattern = /^[0-9]{10}$/; // Kiểm tra xem chuỗi chỉ chứa 10 chữ số hay không
 
@@ -11,9 +14,9 @@ function validatePhoneNumber() {
                item.innerHTML = "";
 
                // Lấy giá trị left, right và rating từ dataUser
-               var leftValue = dataUser[0][Object.keys(dataUser[0])[index]].left;
-               var rightValue = dataUser[0][Object.keys(dataUser[0])[index]].right;
-               var rating = dataUser[0][Object.keys(dataUser[0])[index]].rating;
+               var leftValue = randomObject[Object.keys(randomObject)[index]].left;
+               var rightValue = randomObject[Object.keys(randomObject)[index]].right;
+               var rating = randomObject[Object.keys(randomObject)[index]].rating;
 
                // Gán giá trị left/right và thêm class màu nền tương ứng
                item.innerHTML = leftValue + "/" + rightValue;
@@ -42,9 +45,13 @@ function validatePhoneNumber() {
 }
 
 function showResults() {
-     // Lấy đối tượng ngẫu nhiên từ mảng dataUser
-     const randomIndex = Math.floor(Math.random() * dataUser.length);
-     const randomObject = dataUser[randomIndex];
+     // let testCal = calculatePhoneNumber()
+     // console.log(testCal)
+
+     // // Lấy đối tượng ngẫu nhiên từ mảng dataUser
+     // const randomIndex = Math.floor(Math.random() * dataUser.length);
+     const randomObject = calculatePhoneNumber();
+     console.log(randomObject)
 
      // Cập nhật nội dung của các phần tử HTML
      const resultsDiv = document.getElementById("results");
@@ -108,21 +115,48 @@ document.querySelectorAll(".nav-link").forEach((n) =>
      })
 );
 
-// API phone number
-const dataUser = [
-     {
-          than_menh: { left: "4", right: "1", rating: "RT" },
-          nhan: { left: "2", right: "3", rating: "T" },
-          duyen: { left: "1", right: "5", rating: "X" },
-          qua: { left: "2", right: "4", rating: "T" },
-          tien_thien: { left: "5", right: "1", rating: "X" },
-          trung_thien: { left: "5", right: "5", rating: "T" },
-          hau_thien: { left: "8", right: "8", rating: "T" },
-          decryption: {
-               name: "Trạch Hỏa Cách",
-               five_elements: "Kim - Hỏa",
-               mean: "Cải cách, biến đổi, cuộc cách mạng.",
-          },
-     },
-     // thêm obj tại đây
-];
+// // API phone number
+// const dataUser = [
+//      {
+//           than_menh: { left: "4", right: "1", rating: "RT" },
+//           nhan: { left: "2", right: "3", rating: "T" },
+//           duyen: { left: "1", right: "5", rating: "X" },
+//           qua: { left: "2", right: "4", rating: "T" },
+//           tien_thien: { left: "5", right: "1", rating: "X" },
+//           trung_thien: { left: "5", right: "5", rating: "T" },
+//           hau_thien: { left: "8", right: "8", rating: "T" },
+//           decryption: {
+//                name: "Trạch Hỏa Cách",
+//                five_elements: "Kim - Hỏa",
+//                mean: "Cải cách, biến đổi, cuộc cách mạng.",
+//           },
+//      },
+//      // thêm obj tại đây
+// ];
+
+
+function calculatePhoneNumber() {
+     let phoneNumber = document.getElementById("phoneNumber").value;
+     let lastSixDigits = phoneNumber.slice(-6);
+     let tmCode = thanMenh(lastSixDigits)
+     let nCode = nhan(phoneNumber)
+     let dCode = duyen(nCode)
+     let qCode = qua(nCode, phoneNumber)
+     let tienCode = tienThien(lastSixDigits)
+     let trungCode = trungThien(lastSixDigits)
+     let hauCode = hauThien(lastSixDigits)
+     let decryption = danhGiaNhanDuyenQua(nCode)
+     // console.log("Đánh giá:     ", decryption)
+
+     return {
+          than_menh: tmCode,
+          nhan: nCode,
+          duyen: dCode,
+          qua: qCode,
+          tien_thien: tienCode,
+          trung_thien: trungCode,
+          hau_thien: hauCode,
+          decryption: decryption,
+     }
+
+}
