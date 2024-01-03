@@ -11,6 +11,10 @@
      <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet" />
      <link rel="preconnect" href="https://fonts.googleapis.com" />
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet" />
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
      <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Roboto+Condensed:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
           rel="stylesheet" />
      <!-- BS5 -->
@@ -83,66 +87,102 @@
                                              placeholder="Nhập số điện thoại" />
                                    </div>
                                    <div id="error" class="text-danger mb-3"></div>
-                                   <div class="mb-3">
+                                   <div class="mb-3 d-flex justify-content-center">
                                         <button type="button"
                                              class="btn btn-success p-2 px-3 fw-bolder fs-5 d-flex justify-content-center align-items-center button-action"
                                              onclick="validatePhoneNumber()">
                                              <p class="mb-0">Luận sim</p>
-                                             <img src="./img/shui.png" alt=""
-                                                  class="icon-animation ms-2 rounded-5" width="30px" height="30px" />
+                                             <img src="./img/shui.png" alt="" class="icon-animation ms-2 rounded-5"
+                                                  width="30px" height="30px" />
                                         </button>
+                                   </div>
+                                   <div class="note-container">
+                                        <div class="note-group d-flex align-items-center">
+                                             <div class="note-color bg-danger rounded-5 me-2"></div>
+                                             <span class="note-title fw-bold">
+                                                  Tốt
+                                             </span>
+                                        </div>
+                                        <div class="note-group d-flex align-items-center">
+                                             <div class="note-color bg-primary rounded-5 me-2"></div>
+                                             <span class="note-title fw-bold">
+                                                  Trung bình
+                                             </span>
+                                        </div>
+                                        <div class="note-group d-flex align-items-center">
+                                             <div class="note-color bg-secondary rounded-5 me-2"></div>
+                                             <span class="note-title fw-bold">
+                                                  Xấu
+                                             </span>
+                                        </div>
                                    </div>
                               </form>
                          </div>
-                         <div class="content-list mt-5 d-flex justify-content-center align-items-center">
-                              <div class="content-item--group text-center">
-                                   <div class="content-item fs-5 fw-bold">
-                                        Thiên mệnh
+
+                         <div class="content-container mt-5">
+                              <div class="row">
+                                   <div class="col-12">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                             <div class="content-item fs-5 fw-bold">
+                                                  Nhân <br> mệnh
+                                             </div>
+                                        </div>
                                    </div>
-                                   <div class="result-content fs-5 text-white rounded-circle"></div>
                               </div>
-                              <div class="content-item--group text-center">
-                                   <div class="content-item fs-5 fw-bold">
-                                        Nhân
+                              <div class="row">
+                                   <div class="col-4 d-flex justify-content-end">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                             <div class="content-item fs-5 fw-bold fontSize-textRow2 moveRight-row2"
+                                                  style="transform: translateX(100%);">
+                                                  Nhân
+                                             </div>
+                                        </div>
                                    </div>
-                                   <div class="result-content fs-5 text-white rounded-circle"></div>
-                              </div>
-                              <div class="content-item--group text-center">
-                                   <div class="content-item fs-5 fw-bold">
-                                        Duyên
+                                   <div class="col-4 d-flex justify-content-center">
+                                        <div class="content-item fs-5 fw-bold fontSize-textRow2">
+                                             Duyên
+                                        </div>
                                    </div>
-                                   <div class="result-content fs-5 text-white rounded-circle"></div>
-                              </div>
-                              <div class="content-item--group text-center">
-                                   <div class="content-item fs-5 fw-bold">Quả</div>
-                                   <div class="result-content fs-5 text-white rounded-circle"></div>
-                              </div>
-                              <div class="content-item--group text-center">
-                                   <div class="content-item fs-5 fw-bold">
-                                        Tiên Thiên
+                                   <div class="col-4">
+                                        <div class="content-item fs-5 fw-bold fontSize-textRow2 moveLeft-row2"
+                                             style="transform: translateX(-100%);">
+                                             Quả
+                                        </div>
                                    </div>
-                                   <div class="result-content fs-5 text-white rounded-circle"></div>
                               </div>
-                              <div class="content-item--group text-center">
-                                   <div class="content-item fs-5 fw-bold">
-                                        Trung Thiên
+                              <div class="row">
+                                   <div class="col-4 d-flex justify-content-end">
+                                        <div class="content-item fs-5 fw-bold fontSize-textRow3 moveRight-row3"
+                                             style="transform: translateX(40%);">
+                                             Thiên <br> thời
+                                        </div>
                                    </div>
-                                   <div class="result-content fs-5 text-white rounded-circle"></div>
-                              </div>
-                              <div class="content-item--group text-center">
-                                   <div class="content-item fs-5 fw-bold">
-                                        Hậu Thiên
+                                   <div class="col-4 d-flex justify-content-center">
+                                        <div class="content-item fs-5 fw-bold fontSize-textRow3">
+                                             Địa <br> lợi
+                                        </div>
                                    </div>
-                                   <div class="result-content fs-5 text-white rounded-circle"></div>
+                                   <div class="col-4 d-flex justify-content-start">
+                                        <div class="content-item fs-5 fw-bold fontSize-textRow3 moveLeft-row3"
+                                             style="transform: translateX(-40%);">
+                                             Nhân <br> hòa<a href=""></a>
+                                        </div>
+                                   </div>
                               </div>
                          </div>
+
+
+
                          <div id="resultSection" class="mt-5 text-center table-result">
                               <button class="btn btn-outline-success btn-result d-none fw-bold" onclick="showResults()">
                                    Xem kết quả
                               </button>
                               <div id="results" class="mt-3 mx-lg-5 mx-md-4">
+                                   <p class="fw-bold fs-4 d-flex justify-content-start text-primary mb-0"
+                                        style="font-family: 'DM Sans', sans-serif;">Nhân:</p>
                                    <p class="fw-bold fst-italic d-flex justify-content-start  data-name">Quẻ:</p>
-                                   <p class="fw-bold fst-italic d-flex justify-content-start data-five-element">Ngũ hành:</p>
+                                   <p class="fw-bold fst-italic d-flex justify-content-start data-five-element">Ngũ
+                                        hành:</p>
                                    <p class="fw-bold fst-italic d-flex justify-content-start  data-mean">Ý nghĩa:</p>
                               </div>
                               <div class="mt-3 d-none icon-container">
@@ -151,14 +191,11 @@
                                    </p>
                                    <div class="social-container d-flex justify-content-center align-items-center">
                                         <a href="https://www.facebook.com/lqslinh98" class="m-3"><img
-                                                  src="./img/facebook.png" alt="Facebook" width="50"
-                                                  height="50" /></a>
+                                                  src="./img/facebook.png" alt="Facebook" width="50" height="50" /></a>
                                         <a href="https://www.facebook.com/lqslinh98" class="m-3"><img
-                                                  src="./img/youtube.png" alt="YouTube" width="50"
-                                                  height="50" /></a>
+                                                  src="./img/youtube.png" alt="YouTube" width="50" height="50" /></a>
                                         <a href="https://www.facebook.com/lqslinh98" class="m-3"><img
-                                                  src="./img/telegram.png" alt="Telegram" width="50"
-                                                  height="50" /></a>
+                                                  src="./img/telegram.png" alt="Telegram" width="50" height="50" /></a>
                                    </div>
                               </div>
                          </div>
@@ -178,7 +215,9 @@
                </div>
           </div>
      </div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
      <script src="./controller/index.js"></script>
      <script src="./controller/data.js"></script>
      <script src="./controller/hauthien.js"></script>

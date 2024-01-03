@@ -1,7 +1,7 @@
 *,
 *:before,
 *:after {
-     box-sizing: border-box;
+     box-sizing: border-box !important;
 }
 
 * {
@@ -99,7 +99,7 @@ body {
      font-family: "Arial", sans-serif;
 }
 
-#results{
+#results {
      display: none;
 }
 
@@ -120,25 +120,38 @@ body {
      padding: 100px 20px;
 }
 
-.content-list {
-     display: flex;
-     justify-content: center;
-     align-items: center;
+.note-color{
+     padding: 10px;
+}
+
+.button-action{
+     position: relative;
+}
+
+.note-container{
+     position: absolute;
+     right: 35%;
 }
 
 .content-item {
      display: flex;
      justify-content: center;
      align-items: center;
-     padding: 20px;
-     height: 70px;
-     width: 70px;
-     line-height: 1;
+     height: 7rem;
+     width: 7rem;
      margin: 10px;
      border-radius: 50%;
      border: 1px solid #000;
      text-align: center;
-     transform: translateY(-2px);
+}
+
+.fontSize-textRow2{
+     height: 5rem;
+     width: 5rem;
+}
+.fontSize-textRow3{
+     height: 6rem;
+     width: 6rem;
 }
 
 .result-content {
@@ -190,6 +203,21 @@ table#resultsTable {
      .content-list {
           display: flex;
           flex-wrap: wrap;
+     }
+     .moveRight-row2{
+          transform: translateX(70%);
+     }
+     .moveLeft-row2{
+          transform: translateX(-70%);
+     }
+     .note-container{
+          right: 35%;
+     }
+}
+@media screen and (max-width: 1349.98px) {
+
+     .note-container{
+          right: 30%;
      }
 }
 
@@ -245,6 +273,16 @@ table#resultsTable {
      .main-content {
           /* background-color: #FFFACD; */
      }
+     .note-container{
+          right: 20%;
+     
+     }
+     .moveRight-row3{
+          transform: translateX(20%);
+     }
+     .moveLeft-row3{
+          transform: translateX(-20%);
+     }
 }
 
 @media screen and (max-width: 767.98px) {
@@ -255,7 +293,34 @@ table#resultsTable {
      .left-content {
           display: none;
      }
+     .moveRight-row2{
+          transform: translateX(50%) !important;
+     }
+     .moveLeft-row2{
+          transform: translateX(-50%) !important;
+     }
+     .note-container{
+          right: 10%;
+     
+     }
 }
+@media screen and (max-width: 430.98px) {
+     .fontSize-textRow2{
+          height: 4rem;
+          width: 4rem;
+     }
+     .fontSize-textRow3{
+          height: 5rem;
+          width: 5rem;
+     }
+     .note-container{
+          position: absolute;
+          right: 0;
+          margin-right: 10px;
+     
+     }
+}
+
 
 @media screen and (max-width: 767.98px) {
      .container {

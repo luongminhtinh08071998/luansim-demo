@@ -1,4 +1,4 @@
- 
+
 
 function validatePhoneNumber() {
      const phoneNumber = document.getElementById("phoneNumber").value;
@@ -8,29 +8,28 @@ function validatePhoneNumber() {
 
      if (phoneNumber.match(phonePattern)) {
           errorElement.style.color = "green";
-          const contentItems = document.querySelectorAll(".result-content");
+          const contentItems = document.querySelectorAll(".content-item");
 
           contentItems.forEach((item, index) => {
-               item.innerHTML = "";
+               // item.innerHTML = "";
 
                // Lấy giá trị left, right và rating từ dataUser
-               var leftValue = randomObject[Object.keys(randomObject)[index]].left;
-               var rightValue = randomObject[Object.keys(randomObject)[index]].right;
-               var rating = randomObject[Object.keys(randomObject)[index]].rating;
+               let leftValue = randomObject[Object.keys(randomObject)[index]].left;
+               let rightValue = randomObject[Object.keys(randomObject)[index]].right;
+               let rating = randomObject[Object.keys(randomObject)[index]].rating;
 
                // Gán giá trị left/right và thêm class màu nền tương ứng
-               item.innerHTML = leftValue + "/" + rightValue;
+               // item.innerHTML = leftValue + "/" + rightValue;
 
                // Thêm màu dựa trên rating
                if (rating === "RT") {
-                    item.classList.add("bg-danger");
+                    item.classList.add("bg-danger", "text-white", "border", "border-light-subtle");
                } else if (rating === "T") {
-                    item.classList.add("bg-primary");
+                    item.classList.add("bg-primary", "text-white", "border", "border-light-subtle");
                } else if (rating === "X") {
-                    item.classList.add("bg-secondary");
+                    item.classList.add("bg-secondary", "text-white", "border", "border-light-subtle");
                }
           });
-
           errorElement.textContent = "";
 
           // Hiển thị btn xem kết quả
