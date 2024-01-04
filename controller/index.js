@@ -4,24 +4,19 @@ function validatePhoneNumber() {
      const phoneNumber = document.getElementById("phoneNumber").value;
      const randomObject = calculatePhoneNumber();
      const errorElement = document.getElementById("error");
-     const phonePattern = /^[0-9]{10}$/; // Kiểm tra xem chuỗi chỉ chứa 10 chữ số hay không
+     const phonePattern = /^[0-9]{10}$/;
 
      if (phoneNumber.match(phonePattern)) {
           errorElement.style.color = "green";
           const contentItems = document.querySelectorAll(".content-item");
 
           contentItems.forEach((item, index) => {
-               // item.innerHTML = "";
-
-               // Lấy giá trị left, right và rating từ dataUser
                let leftValue = randomObject[Object.keys(randomObject)[index]].left;
                let rightValue = randomObject[Object.keys(randomObject)[index]].right;
                let rating = randomObject[Object.keys(randomObject)[index]].rating;
 
-               // Gán giá trị left/right và thêm class màu nền tương ứng
-               // item.innerHTML = leftValue + "/" + rightValue;
+               item.innerHTML = leftValue + "/" + rightValue;
 
-               // Thêm màu dựa trên rating
                if (rating === "RT") {
                     item.classList.add("bg-danger", "text-white", "border", "border-light-subtle");
                } else if (rating === "T") {
@@ -35,13 +30,21 @@ function validatePhoneNumber() {
           // Hiển thị btn xem kết quả
           const viewResultButton = document.querySelector(".btn-result");
           viewResultButton.classList.remove("d-none");
+
+          const contentContainer = document.querySelector('.content-container');
+          const noteContainer = document.querySelector('.note-container');
+
+          contentContainer.classList.remove('d-none');
+          contentContainer.classList.add('d-block');
+          noteContainer.classList.remove('d-none');
+          noteContainer.classList.add('d-block');
      } else {
-          // Điều kiện không đúng, hiển thị thông báo lỗi
           errorElement.textContent =
                "Số điện thoại không hợp lệ. Xin vui lòng nhập 10 chữ số.";
           errorElement.style.color = "red";
      }
 }
+
 
 function showResults() {
      // let testCal = calculatePhoneNumber()
