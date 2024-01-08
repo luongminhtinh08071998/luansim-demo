@@ -1,0 +1,432 @@
+<div class="Menu">
+    <div class="navbarw3">
+
+        <div class="home" href="/home"><a href="/home" class="fa fa-home home-post">Trang chủ</a></div>
+        {{#each this.categories as | item|}}
+        <div class="dropdownw3">
+            <button class="dropbtn category"><a href="/home/{{ item.code}}">{{ category}}</a>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdownw3-contentw3">
+                {{#each child as |childitem| }}
+                <a href="/home/{{item.code}}/{{ childitem.code}}" class="category">{{childitem.name}}</a>
+                {{/each}}
+            </div>
+
+        </div>
+        {{/each}}
+        <div class="dropdownw3">
+            <button class="dropbtn category"><a href="/home"><img style="height: 20px; width: 20px;"
+                        src="/images/account1.png" alt="photo"></a>
+            </button>
+            {{#if this.check}}
+            <div class="dropdownw3-contentw3">
+                <a href="/{{this.user.permission}}" class="category">Vào trang cá nhân</a>
+                <a href="/account/signout" class="category">Đăng xuất</a>
+            </div>
+            {{^}}
+            <div class="dropdownw3-contentw3">
+                <a href="/account/login" class="category">Đăng nhập</a>
+                <a href="/account/register" class="category">Đăng kí</a>
+            </div>
+            {{/if}}
+        </div>
+        <div class="search-and-account">
+            <div class="searchBar">
+                <form action="home/search">
+                    <input name="search" class="search" type="search" placeholder="Search" type="submit">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="highlight-news">
+        <script src="/js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+        <script src=".//js/jshighlight.js"></script>
+        <div id="jssor_1" style="width: 800%;">
+            <div data-u="slides"
+                style="cursor:default;position:relative;margin:0;top:0px;right:0px;width:510px;height:340px;overflow:hidden; ">
+
+                {{#each this.articles as |article|}}
+                {{#if this.highlight}}
+                <div>
+                    <div class="carousel-item active">
+                        <img data-u="image" src="{{this.imgSource}}" alt="1">
+                        <h3 class="post-title">
+                            <a
+                                href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}">{{describe}}</a>
+                        </h3>
+                        <a href="#">
+                            <i class="fa fa-clock-o"></i>
+                            {{formatDate article.date}}
+                        </a>
+                    </div>
+                    <div data-u="thumb">
+                        <img data-u="thumb" class="i" src="{{imgSource}}" />
+                        <span class="ti">{{category}}</span><br />
+                        <span class="d">{{title}}</span>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+
+            </div>
+            <!-- Thumbnail Navigator -->
+            <div data-u="thumbnavigator" class="jssort121"
+                style="position:absolute;left:5px;top:0px;width:280px;height:320px;overflow:hidden;cursor:default;background:white;  padding: 10px;"
+                data-autocenter="2" data-scale-left="0.75">
+                <div data-u="slides">
+                    <div data-u="prototype" class="p" style="width:290px;height:68px;">
+                        <div data-u="thumbnailtemplate" class="t"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bullet Navigator -->
+            <div data-u="navigator" class="jssorb111" style="position:absolute;bottom:12px;left: 470%;"
+                data-scale="0.5">
+                <div data-u="prototype" class="i" style="width:24px;height:24px;font-size:12px;line-height:24px;">
+                    <svg viewbox="0 0 16000 16000"
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;">
+                        <circle class="b" cx="8000" cy="8000" r="3000"></circle>
+                    </svg>
+                    <div data-u="numbertemplate" class="n"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">jssor_1_slider_init();</script>
+        <!-- #endregion Jssor Slider End -->
+    </div>
+    <div class="highlight-ratio">
+        <a href="#" style="font-size: 15px;font-weight: 150; background: #e3b014; color: white; padding: 4px 10px; ">Giá
+            vàng</a>
+        <div class="ratio">
+
+            <div class="price">
+                <a href="#" class="type">SJC</a>
+                <a href="#" class="buy">Mua:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,180.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,370.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">SHB</a>
+                <a href="#" class="buy">Mua:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,520.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,640.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">DOJI</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,200.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,320.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">SCB</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,650.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">36,780.00</a></a>
+            </div>
+        </div>
+
+        <a href="#" style="font-size: 15px;font-weight: 150; background: #08b089; color: white; padding: 4px 10px">Tỉ
+            giá</a>
+        <div class="ratio">
+            <div class="price">
+                <a href="#" class="type">USD</a>
+                <a href="#" class="buy">Mua:<a href="#"
+                        style=" width: 90px; color: rgb(85, 84, 84); color: rgb(85, 84, 84);">23,200.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">23,200.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">EUR</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">25,793.61</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">26,710.05</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">GBP</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">30,222.00</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">30,838.00</a></a>
+            </div>
+            <div class="price">
+                <a href="#" class="type">JPY</a>
+                <a href="#" class="buy">Mua:
+                    <a href="#" style=" width: 90px; color: rgb(85, 84, 84);">201.82</a></a>
+                <a href="#" class="sell">Bán:<a href="#" style=" width: 90px; color: rgb(85, 84, 84);">210.67</a></a>
+            </div>
+        </div>
+
+        <a href="#"
+            style="font-size: 15px;font-weight: 150; background: rgb(58, 110, 207); color:white; padding: 4px 10px">Vietlott</a>
+        <div class="ratio">
+            <div class="lottery">
+                <a href="#" class="prize">Power 6/55</a>
+                <a href="#" class="date">04/05</a>
+                <a href="#" class="number">01 02 53 17 26 53 | 50</a>
+            </div>
+            <div class="lottery">
+                <a href="#" class="prize">Power 6/45</a>
+                <a href="#" class="date">03/05</a>
+                <a href="#" class="number">01 06 14 31 35 44 </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <div class="column-left">
+        <div class="content">
+            <div class="listPost">
+                <div class="labelItem">
+                    <div class="label1">Bài viết chọn lọc</div>
+                    <div class="lined"></div>
+                </div>
+                {{#each this.articles as | article|}}
+                {{#if this.selective}}
+
+                <article class="post" id="">
+                    <header class="title" id="">
+                        <a href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}"
+                            title="{{title}}">{{title}} </a>
+                    </header>
+
+                    <div class="post-body">
+                        <span class="avatar" id="">
+                            <a title="{{title}}"
+                                href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{code}}">
+                                <img src="{{imgSource}}" alt="{{title}}" class="width-120 initial loaded"
+                                    data-was-processed="true"></a>
+                        </span>
+                        <div class="post-content">
+                            <span class="describe" id="">
+                                <a>{{describe}}</a>
+                            </span>
+                            <div class="datePost" id="">
+                                <a title="/">{{formatDate date}}</a>
+                            </div>
+                            <div class="more" id="">
+                                <a title="{{category}}"
+                                    href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}">{{category}}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+                <hr style="margin-top: 5px; margin-bottom: 10px;">
+
+                {{/if}}
+                {{/each}}
+            </div>
+            <div class="listPost">
+                <div class="labelItem">
+                    <div class="label1">Bài viết mới nhất</div>
+                    <div class="lined"></div>
+                    {{#each this.ariclesLastes as | article|}}
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{code}}"
+                                title="{{title}}">{{title}} </a>
+                        </header>
+
+                        <div class="post-body">
+                            <span class="avatar" id="">
+                                <a title="{{title}}"
+                                    href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}/{{article.code}}">
+                                    <img src="{{article.imgSource}}" alt="{{article.title}}"
+                                        class="width-120 initial loaded" data-was-processed="true"></a>
+                            </span>
+                            <div class="post-content">
+                                <span class="describe" id="">
+                                    <a>{{describe}}</a>
+                                </span>
+                                <div class="datePost" id="">
+                                    <a title="/">{{formatDate date}}</a>
+                                </div>
+                                <div class="more" id="">
+                                    <a title="{{article.category}}"
+                                        href="/home/{{xoadau article.categoryBase}}/{{xoadau article.category}}">{{article.category}}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                    <hr style="margin-top: 5px; margin-bottom: 10px;">
+                    {{/each}}
+                </div>
+
+
+            </div>
+            <div class="listPost">
+                <div class="labelItem">
+                    <div class="label1">Bài viết được xem nhiều nhất</div>
+                    <div class="lined"></div>
+                    {{#each this.articlesMostView}}
+                    <article class="post" id="">
+                        <header class="title" id="">
+                            <a href="/home/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}"
+                                title="{{title}}">{{title}} </a>
+                        </header>
+
+                        <div class="post-body">
+                            <span class="avatar" id="">
+                                <a title="{{title}}" href="/home/{{xoadau categoryBase}}/{{xoadau category}}/{{code}}">
+                                    <img src="{{imgSource}}" alt="{{title}}" class="width-120 initial loaded"
+                                        data-was-processed="true"></a>
+                            </span>
+                            <div class="post-content">
+                                <span class="describe" id="">
+                                    <a>{{describe}}</a>
+                                </span>
+                                <div class="datePost" id="">
+                                    <a title="/">{{formatDate date}}</a>
+                                </div>
+                                <div class="more" id="">
+                                    <a title="{{category}}"
+                                        href="/home/{{xoadau categoryBase}}/{{xoadau category}}">{{category}}</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                    <hr style="margin-top: 5px; margin-bottom: 10px;">
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="column-right">
+        <div class="widgets ts-grid-box  widgets-populer-post">
+
+            <div class="sidebar sidebar-sticky">
+                <h3 class="widget-title">Chuyên mục được xem nhiều nhất trong ngày</h3>
+                <div class="lined"></div>
+                <ul class="nav flex-column">
+                    {{#each this.topCategories}}
+                    <li class="nav-item">
+                        <a href="/home/{{xoadau category}}/{{child.code}}">
+                            {{child.name}}
+
+                            <span class="ts-green-bg">{{child.view}}</span>
+
+                        </a>
+                    </li>
+                    {{/each}}
+
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="widgets ts-grid-box  widgets-populer-post">
+            <h3 class="widget-title">Follow us</h3>
+            <div class="lined"></div> <br>
+            <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #3B5998;" href="#" class="btn  btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Facebook">
+                        <i class="fa fa-facebook fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #00ACED;" href="#" class="btn  btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Twitter">
+                        <i class="fa fa-twitter fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #C32F10;" href="#" class="btn  btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Google Plus">
+                        <i class="fa fa-google-plus fa-2x"></i>
+                    </a>
+                </div>
+            </div><br>
+            <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #666666;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="GitHub">
+                        <i class="fa fa-github fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #FF8800;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="SoundCloud">
+                        <i class="fa fa-soundcloud fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #878787;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Steam">
+                        <i class="fa fa-steam fa-2x"></i>
+                    </a>
+                </div>
+            </div><br>
+            <div class="row kpx_row-sm-offset-3 widgets-socialButtons">
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #CC2127;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Pinterest">
+                        <i class="fa fa-pinterest fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #1AB7EA;" href="#" class="btn btn-block " data-toggle="tooltip"
+                        data-placement="top" title="Vimeo">
+                        <i class="fa fa-vimeo-square fa-2x"></i>
+                    </a>
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <a style="background: #C3000D;" href="#" class="btn btn-block" data-toggle="tooltip"
+                        data-placement="top" title="Lastfm">
+                        <i class="fa fa-lastfm fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/10d82106d63/ho-chi-minh-city/"
+            data-label_1="HO CHI MINH CITY" data-label_2="WEATHER" data-theme="original">HO CHI MINH CITY
+            WEATHER</a>
+        <script>
+            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+        </script>
+    </div>
+
+</div>
+
+<footer class="ts-footer">
+    <div class="p-3 mb-2 bg-primary text-white">
+        <div class="col">
+            <img src="./resources/images/logoduoi.png">
+            <div class="text-light">Giấy phép Báo điện tử số: 2302/GP-BTTTT, cấp ngày 29/11/2012</div>
+        </div>
+
+        <div class="col text-light">
+            Tổng biên tập: Nguyễn Hoàng Lưu.
+            <br>
+            Thư ký tòa soạn: Hồng Văn; Phó thư ký tòa soạn: Yến Dung.
+            <br>
+            Tòa soạn: Số 35 Nam Kỳ Khởi Nghĩa, Quận 1, Thành phố Hồ Chí Minh.
+            <br>
+            Điện thoại: (8428) 3829 5936; Fax: (8428) 3829 4294; Email: online@kinhtesaigon.vn
+            <br>
+            Thời báo Kinh tế Sài Gòn giữ bản quyền nội dung của trang web www.thesaigontimes.vn. Không được sử
+            dụng
+            lại nội
+            dung trên Thời báo Kinh tế Sài Gòn Online dưới mọi hình thức, trừ khi được Thời báo Kinh tế Sài Gòn
+            đồng
+            ý bằng
+            văn bản.
+            <br>
+            Trang ngoài sẽ được mở ra ở cửa sổ mới. Thời báo Kinh tế Sài Gòn Online không chịu trách nhiệm nội
+            dung
+            trang
+            ngoài.
+            <br>
+            Bản quyền thuộc về SaigonTimesGroup.
+        </div>
+    </div>
+</footer>

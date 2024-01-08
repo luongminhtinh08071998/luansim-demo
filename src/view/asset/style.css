@@ -120,15 +120,15 @@ body {
      padding: 100px 20px;
 }
 
-.note-color {
+.note-color{
      padding: 10px;
 }
 
-.button-action {
+.button-action{
      position: relative;
 }
 
-.note-container {
+.note-container{
      position: absolute;
      right: 35%;
 }
@@ -145,12 +145,11 @@ body {
      text-align: center;
 }
 
-.fontSize-textRow2 {
+.fontSize-textRow2{
      height: 5rem;
      width: 5rem;
 }
-
-.fontSize-textRow3 {
+.fontSize-textRow3{
      height: 6rem;
      width: 6rem;
 }
@@ -205,23 +204,19 @@ table#resultsTable {
           display: flex;
           flex-wrap: wrap;
      }
-
-     .moveRight-row2 {
+     .moveRight-row2{
           transform: translateX(70%);
      }
-
-     .moveLeft-row2 {
+     .moveLeft-row2{
           transform: translateX(-70%);
      }
-
-     .note-container {
+     .note-container{
           right: 35%;
      }
 }
-
 @media screen and (max-width: 1349.98px) {
 
-     .note-container {
+     .note-container{
           right: 30%;
      }
 }
@@ -278,17 +273,14 @@ table#resultsTable {
      .main-content {
           /* background-color: #FFFACD; */
      }
-
-     .note-container {
+     .note-container{
           right: 20%;
-
+     
      }
-
-     .moveRight-row3 {
+     .moveRight-row3{
           transform: translateX(20%);
      }
-
-     .moveLeft-row3 {
+     .moveLeft-row3{
           transform: translateX(-20%);
      }
 }
@@ -301,37 +293,31 @@ table#resultsTable {
      .left-content {
           display: none;
      }
-
-     .moveRight-row2 {
+     .moveRight-row2{
           transform: translateX(50%) !important;
      }
-
-     .moveLeft-row2 {
+     .moveLeft-row2{
           transform: translateX(-50%) !important;
      }
-
-     .note-container {
+     .note-container{
           right: 10%;
-
+     
      }
 }
-
 @media screen and (max-width: 430.98px) {
-     .fontSize-textRow2 {
+     .fontSize-textRow2{
           height: 4rem;
           width: 4rem;
      }
-
-     .fontSize-textRow3 {
+     .fontSize-textRow3{
           height: 5rem;
           width: 5rem;
      }
-
-     .note-container {
+     .note-container{
           position: absolute;
           right: 0;
           margin-right: 10px;
-
+     
      }
 }
 
