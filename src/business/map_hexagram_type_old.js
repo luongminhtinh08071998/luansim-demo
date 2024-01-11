@@ -1,4 +1,4 @@
-let mapPhanLoaiQue = {
+let mapHexagramType = {
     "1/1": "RT",
     "1/2": "T",
     "1/3": "T",
@@ -72,4 +72,7 @@ let mapPhanLoaiQue = {
     "8/8": "T",
 }
 
- 
+  
+module.exports = {
+    mapHexagramType,
+};
