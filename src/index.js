@@ -19,7 +19,7 @@ console.log(__dirname)
 //   res.render('home')
 // })
 
-// // app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", homeRoute);
 

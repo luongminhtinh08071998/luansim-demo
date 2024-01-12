@@ -15,6 +15,21 @@ function sowHexagram(phoneNumber) {
      let hauCode = hauthien.gieoQueHauThien(lastSixDigits)
      let decryption = cause_fate_effect.decodingHexagram(cause)
 
+     let mappoint = {
+          "bg-danger": 1.5,
+          "bg-primary": 1,
+          "bg-secondary": 0,
+     }
+
+     let point =
+          mappoint[tmCode.rating] +
+          mappoint[cause.rating] +
+          mappoint[fate.rating] +
+          mappoint[effect.rating] +
+          mappoint[tienCode.rating] +
+          mappoint[trungCode.rating] +
+          mappoint[hauCode.rating]
+
      return {
           than_menh: tmCode,
           cause: cause,
@@ -24,6 +39,7 @@ function sowHexagram(phoneNumber) {
           trung_thien: trungCode,
           hau_thien: hauCode,
           decryption: decryption,
+          point: Intl.NumberFormat('en-IN', { maximumSignificantDigits: 2 }).format((point*10)/10.5),
      }
 
 }
